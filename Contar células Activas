@@ -1,0 +1,18 @@
+<script>
+function contarActivas() {
+    var totalActivas = 0;
+    jQuery('.jet-listing-grid__item').each(function() {
+        var activas = jQuery(this).find('.estatuscels:contains("ACT")').filter(function() {
+            return jQuery(this).text().indexOf("ACT") !== -1;
+        });
+        totalActivas += activas.length;
+    });
+    var resultado = totalActivas / 2;
+    jQuery('.celulasactivas').text(resultado);
+}
+
+jQuery(document).ready(function(){
+    contarActivas(); // Llamada inicial a la función para mostrar los resultados al cargar la página
+    setInterval(contarActivas, 5000); // Llamada a la función cada 5 segundos para actualizar los resultados
+});
+</script>
