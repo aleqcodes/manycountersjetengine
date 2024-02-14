@@ -1,0 +1,13 @@
+<style>
+/* ESTILOS GENERALES */
+    .resultadodis, .resultadocre, .resultadomin, .totalcels,
+        .celulasinactivas,
+        .celulasenriesgo,
+        .celulasactivas{
+    font-size: 1.7rem;
+    color: #191919;
+    font-weight: bold;
+    padding: 10px;
+    
+}
+</style>
