@@ -1,0 +1,25 @@
+<script>
+
+
+/* Contar Crecimiento*/
+
+function contarCrecimiento() {
+    var totalCrecimiento = 0;
+    jQuery('.jet-listing-grid__item').each(function() {
+        var crecimiento = jQuery(this).find('.tipocels:contains("Crecimiento")').filter(function() {
+            return jQuery(this).text().trim() === "Crecimiento";
+        });
+        totalCrecimiento += crecimiento.length;
+    });
+    var resultado = totalCrecimiento / 2;
+    jQuery('.resultadocre').text(resultado);
+    
+}
+
+jQuery(document).ready(function(){
+    contarCrecimiento(); // Llamada inicial a la función para mostrar los resultados al cargar la página
+    setInterval(contarCrecimiento, 5000); // Llamada a la función cada 5 segundos para actualizar los resultados
+});
+
+
+</script>
