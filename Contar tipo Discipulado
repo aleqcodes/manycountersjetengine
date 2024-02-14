@@ -1,0 +1,21 @@
+<script>
+    
+/*Contar Discipulado */
+function contarDiscipulados() {
+    var totalDiscipulados = 0;
+    jQuery('.jet-listing-grid__item').each(function() {
+        var discipulados = jQuery(this).find('.tipocels:contains("Discipulado")').filter(function() {
+            return jQuery(this).text().trim() === "Discipulado";
+        });
+        totalDiscipulados += discipulados.length;
+    });
+    var resultado = totalDiscipulados / 2;
+    jQuery('.resultadodis').text(resultado);
+}
+
+jQuery(document).ready(function(){
+    contarDiscipulados(); // Llamada inicial a la función para mostrar los resultados al cargar la página
+    setInterval(contarDiscipulados, 5000); // Llamada a la función cada 5 segundos para actualizar los resultados
+});
+
+</script>
