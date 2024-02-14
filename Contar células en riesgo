@@ -1,0 +1,22 @@
+<script>
+    
+    /*Contar En riesgo */
+
+  function contarEnriesgo() {
+    var totalEnriesgo = 0;
+    jQuery('.jet-listing-grid__item').each(function() {
+      var enriesgo = jQuery(this).find('.estatuscels:contains("OBS")').filter(function() {
+        return jQuery(this).text().indexOf("OBS") !== -1;
+      });
+      totalEnriesgo += enriesgo.length;
+    });
+    var resultado = totalEnriesgo / 2;
+    jQuery('.celulasenriesgo').text(resultado);
+  }
+
+  jQuery(document).ready(function(){
+    contarEnriesgo(); // Llamada inicial a la función para mostrar los resultados al cargar la página
+    setInterval(contarEnriesgo, 5000); // Llamada a la función cada 5 segundos para actualizar los resultados
+  });
+    
+</script>
