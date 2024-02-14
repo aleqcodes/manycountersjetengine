@@ -1,0 +1,20 @@
+<script>
+    
+    /*Contar Inactivas */
+  function contarInactivas() {
+    var totalInactivas = 0;
+    jQuery('.jet-listing-grid__item').each(function() {
+      var inactivas = jQuery(this).find('.estatuscels:contains("OFF")').filter(function() {
+        return jQuery(this).text().indexOf("OFF") !== -1;
+      });
+      totalInactivas += inactivas.length;
+    });
+    var resultado = totalInactivas / 2;
+    jQuery('.celulasinactivas').text(resultado);
+  }
+
+  jQuery(document).ready(function(){
+    contarInactivas(); // Llamada inicial a la función para mostrar los resultados al cargar la página
+    setInterval(contarInactivas, 5000); // Llamada a la función cada 5 segundos para actualizar los resultados
+  });
+</script>
