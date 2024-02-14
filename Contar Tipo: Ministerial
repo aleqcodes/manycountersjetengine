@@ -1,0 +1,22 @@
+<script>
+
+/* Contar Ministerial */
+
+function contarMinisterial() {
+    var totalMinisterial = 0;
+    jQuery('.jet-listing-grid__item').each(function() {
+        var ministeriales = jQuery(this).find('.tipocels:contains("Ministerial")').filter(function() {
+            return jQuery(this).text().trim() === "Ministerial";
+        });
+        totalMinisterial += ministeriales.length;
+    });
+    var resultado = totalMinisterial / 2;
+    jQuery('.resultadomin').text(resultado);
+}
+
+jQuery(document).ready(function(){
+    contarMinisterial(); // Llamada inicial a la función para mostrar los resultados al cargar la página
+    setInterval(contarMinisterial, 5000); // Llamada a la función cada 5 segundos para actualizar los resultados
+});
+
+</script>
