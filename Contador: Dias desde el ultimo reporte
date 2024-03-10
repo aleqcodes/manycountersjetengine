@@ -1,0 +1,35 @@
+
+ <script>  
+
+jQuery(document).ready(function() {
+    // Función para convertir fecha de dd/mm/aaaa a objeto Date de JavaScript
+    function parseFecha(str) {
+        var partes = str.split('/');
+        if (partes.length === 3) {
+            return new Date(partes[2], partes[1] - 1, partes[0]);
+        } else {
+            console.log("Formato de fecha incorrecto:", str);
+            return null;
+        }
+    }
+
+    // Obtiene la fecha del primer elemento con clase 'fechacelula'
+    var fechaCelulaStr = jQuery('.fechacelula').first().text();
+    var fechaCelula = parseFecha(fechaCelulaStr);
+
+    if (fechaCelula) {
+        var fechaActual = new Date();
+        var diferencia = (fechaActual - fechaCelula) / (1000 * 60 * 60 * 24);
+        var diasDiferencia = Math.round(diferencia) - 1; // Ajuste aquí
+        jQuery('.ultimoreporte').text('Esta célula se realizó hace ± ' + diasDiferencia + ' días');
+    } else {
+        jQuery('.ultimoreporte').text("Error de formato en la fecha");
+    }
+});
+
+</script>
+
+
+ 
+
+ 
