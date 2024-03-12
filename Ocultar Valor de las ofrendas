@@ -1,0 +1,20 @@
+<script>
+    
+    // Obtener el elemento con la clase .totalofrendas
+const totalOfrendas = document.querySelector('.totalo');
+
+// Crear el elemento del icono de ojo cerrado
+const iconoOjoCerrado = document.createElement('i');
+iconoOjoCerrado.classList.add('fas', 'fa-eye-slash'); // Asegúrate de tener la biblioteca Font Awesome cargada para que funcione
+
+// Agregar un evento de clic al elemento
+totalOfrendas.addEventListener('click', function() {
+  // Ocultar el elemento .totalofrendas
+  totalOfrendas.style.display = 'none';
+
+  // Agregar el icono de ojo cerrado al mismo contenedor
+  totalOfrendas.parentNode.appendChild(iconoOjoCerrado);
+});
+    
+    
+</script>
